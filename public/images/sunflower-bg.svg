@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <!-- Painted sunflower-field background. Used by style.css as the page background. -->
+  <rect width="1440" height="900" fill="#E3A72F"/>
+
+  <!-- Brush strokes across the sky -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M-40 80 C 200 40, 420 130, 700 80 S 1160 30, 1480 90" stroke="#F0C04A" stroke-width="18" stroke-dasharray="26 14"/>
+    <path d="M-40 150 C 240 110, 480 200, 760 150 S 1200 100, 1480 160" stroke="#C98A1E" stroke-width="10" stroke-dasharray="18 16"/>
+    <path d="M-40 230 C 220 190, 460 270, 740 220 S 1180 180, 1480 240" stroke="#F6D36A" stroke-width="14" stroke-dasharray="22 12"/>
+    <path d="M-40 320 C 260 280, 500 360, 780 310 S 1220 270, 1480 330" stroke="#D29425" stroke-width="12" stroke-dasharray="20 18"/>
+    <path d="M-40 420 C 200 380, 440 460, 720 410 S 1160 370, 1480 430" stroke="#F0C04A" stroke-width="16" stroke-dasharray="28 12"/>
+    <path d="M-40 520 C 240 480, 480 560, 760 510 S 1200 470, 1480 530" stroke="#C98A1E" stroke-width="10" stroke-dasharray="16 16"/>
+    <path d="M-40 620 C 220 580, 460 660, 740 610 S 1180 570, 1480 630" stroke="#F6D36A" stroke-width="14" stroke-dasharray="24 12"/>
+    <path d="M-40 720 C 260 680, 500 760, 780 710 S 1220 670, 1480 730" stroke="#D29425" stroke-width="12" stroke-dasharray="20 18"/>
+  </g>
+
+  <!-- The ground -->
+  <rect x="0" y="790" width="1440" height="110" fill="#B9721A"/>
+  <path d="M-20 800 L 1460 800" stroke="#8F5512" stroke-width="10" stroke-dasharray="40 10" fill="none"/>
+
+  <!-- Three sunflowers: stem, petals, centre -->
+  <g>
+    <path d="M1310 900 C 1300 760, 1320 660, 1300 560" stroke="#4E6B2A" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <circle cx="1300" cy="520" r="78" fill="none" stroke="#F4B819" stroke-width="56" stroke-dasharray="10 7"/>
+    <circle cx="1300" cy="520" r="54" fill="#6B3E12"/>
+    <circle cx="1300" cy="520" r="40" fill="none" stroke="#3E2208" stroke-width="10" stroke-dasharray="4 6"/>
+
+    <path d="M120 900 C 130 780, 100 700, 125 620" stroke="#4E6B2A" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <circle cx="125" cy="590" r="56" fill="none" stroke="#F8C52C" stroke-width="40" stroke-dasharray="8 6"/>
+    <circle cx="125" cy="590" r="38" fill="#7A4614"/>
+    <circle cx="125" cy="590" r="26" fill="none" stroke="#3E2208" stroke-width="8" stroke-dasharray="4 5"/>
+
+    <path d="M1180 900 C 1190 820, 1170 760, 1185 720" stroke="#4E6B2A" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <circle cx="1185" cy="700" r="40" fill="none" stroke="#E89A12" stroke-width="28" stroke-dasharray="7 5"/>
+    <circle cx="1185" cy="700" r="26" fill="#5C3410"/>
+  </g>
+
+  <!-- A blue sun, top right -->
+  <g fill="none" stroke="#2F6F8F" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 10">
+    <circle cx="1320" cy="120" r="46"/>
+    <circle cx="1320" cy="120" r="70"/>
+  </g>
+</svg>

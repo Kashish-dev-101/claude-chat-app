@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sunflower Studio</title>
+
+  <!-- Fonts from Google Fonts (needs internet; the page falls back to system fonts without it) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+  <!-- A tiny sunflower icon so the browser doesn't ask for favicon.ico (which would be a 404) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23F4B819'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%236B3E12'/%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ===== Top bar: name, model, max_tokens, clear chat ===== -->
+    <header class="topbar">
+      <div class="brand">
+        <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B9721A" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="3.5"></circle>
+          <path d="M12 3.5c1.6 1.6 1.6 3.4 0 5M12 15.5c1.6 1.6 1.6 3.4 0 5M3.5 12c1.6-1.6 3.4-1.6 5 0M15.5 12c1.6-1.6 3.4-1.6 5 0"></path>
+        </svg>
+        <h1>Sunflower Studio</h1>
+      </div>
+
+      <div class="controls">
+        <label class="field">Model
+          <select id="model"></select>
+        </label>
+        <label class="field" title="The most tokens Claude may write in one reply. Thinking tokens count toward it.">max_tokens
+          <input id="maxTokens" type="number" value="1024" min="1" max="4096" step="1">
+        </label>
+        <button id="clearBtn" type="button" class="btn btn-danger">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"></path></svg>
+          Clear chat
+        </button>
+      </div>
+    </header>
+
+    <div class="layout">
+
+      <!-- ===== Left: the chat ===== -->
+      <section class="chat" aria-label="Chat">
+
+        <!-- The system prompt: a pill you click to edit -->
+        <div class="system">
+          <button id="systemPill" type="button" class="pill" aria-expanded="false" aria-controls="systemEditor"></button>
+          <div id="systemEditor" class="system-editor" hidden>
+            <label for="systemInput">System prompt</label>
+            <textarea id="systemInput" rows="3"></textarea>
+            <div id="presets" class="presets" aria-label="Example system prompts"></div>
+            <p class="hint">Sent as the <code>system</code> field with every message. A change applies from your next message. Earlier messages stay as they were.</p>
+          </div>
+        </div>
+
+        <!-- Messages are drawn here by app.js -->
+        <div id="messages" class="messages" aria-live="polite"></div>
+
+        <form id="composer" class="composer">
+          <label for="input" class="sr-only">Message</label>
+          <textarea id="input" rows="2" placeholder="Paint your prompt here…"></textarea>
+          <button id="sendBtn" type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </section>
+
+      <!-- ===== Right: the inspector ===== -->
+      <aside class="inspector" aria-label="Request and response inspector">
+        <div class="tabs" role="tablist" aria-label="What to show">
+          <button type="button" role="tab" class="tab" data-tab="request" aria-selected="true">Request JSON</button>
+          <button type="button" role="tab" class="tab" data-tab="response" aria-selected="false">Response JSON</button>
+          <button type="button" role="tab" class="tab" data-tab="headers" aria-selected="false">Headers</button>
+        </div>
+
+        <div id="stats" class="stats"></div>
+
+        <div class="pane">
+          <div class="pane-head">
+            <h2 id="paneTitle">Request JSON</h2>
+            <div class="pane-actions">
+              <button id="curlBtn" type="button" class="copy">Copy as cURL</button>
+              <button id="copyBtn" type="button" class="copy">Copy</button>
+            </div>
+          </div>
+          <p id="paneNote" class="pane-note"></p>
+          <div id="paneBody" class="pane-body"></div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
